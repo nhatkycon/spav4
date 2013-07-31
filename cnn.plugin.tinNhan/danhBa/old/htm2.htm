@@ -1,0 +1,82 @@
+﻿<div id="danhbaoldmdl-dlgChuyentiep" style="display:none">
+<table>
+    <tr>
+        <td class="adm-col-header" valign="top"><strong>Gửi tới:</strong> <input style="display:none"  class="admtxt-250 ID" /></td>
+        <td valign="top">
+        <div class="adm-textarea-small-12 listUserTo">
+            <input class="adm-token-input listUser" />
+        </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="adm-col-header" valign="top"><strong>Cc:</strong></td>
+        <td valign="top">
+        <div class="adm-textarea-small-12 CcTo" style="float:left;">
+            <input class="adm-token-input Cc" />
+        </div>
+       
+        </td>
+    </tr>
+    <tr>
+        <td class="adm-col-header" valign="top"><strong>Bc:</strong></td>
+        <td valign="top">
+            <div class="adm-textarea-small-12 BcTo" style="float:left;">
+                <input class="adm-token-input Bc" />
+            </div>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="adm-col-header" valign="top"><strong>Tiêu đề:</strong></td>
+        <td valign="top">
+            <input class="adm-textarea-small-12 Tieude" />
+        </td>
+    </tr>
+   
+    <tr>
+        <td class="adm-col-header" valign="top"><strong> File kèm theo</strong></td > 
+        <td class="" valign="top">
+            <strong>  
+                <div class="adm-textarea-small-12" style="float:left;"><div class="adm-upload-fileList"></div></div> 
+                <a href="javascript:;" class="adm-uploadfile-btn File mdl-head-btn" ref="">Upload File</a>
+            </strong>
+        </td> 
+        
+    </tr>
+    <tr>
+        <td class="adm-col-header" valign="top">&nbsp;<strong>Nội dung:</strong></td>
+      
+        <td valign="top">
+            <input type="checkbox" class="Quantrong" />Quang trọng
+            <input type="checkbox" class="Tinpopup" />Thông báo Popup
+            <input type="checkbox" class="Tindidong" />Thông báo tới di động
+        </td>
+    </tr>
+      <tr>
+        <td class="adm-col-header" valign="top"></td>
+      
+        <td valign="top">
+           <textarea class="Noidung"></textarea> 
+        </td>
+    </tr>
+     <tr>
+        <td valign="top" colspan="2">
+    <a class="mdl-head-btn mdl-head-del" id="danhbaoldmdl-dlgChuyentiep-delBtn" href="javascript:danhbaObjold.delEmptyct();">Hủy</a>
+    <a class="mdl-head-btn mdl-head-add" id="danhbaoldmdl-dlgChuyentiep-saveBtn" href="javascript:danhbaObjold.savect();">Lưu nháp</a>
+    <a class="mdl-head-btn mdl-head-add" id="danhbaoldmdl-dlgChuyentiep-sendBtn" href="javascript:danhbaObjold.sendct();">Gửi</a>
+   
+       
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top"></td>
+        <td valign="top">
+        
+        <span class="admInfo"></span><br />
+
+        <span class="admMsg"></span>
+        </td>
+    </tr>
+    </table>
+</div>

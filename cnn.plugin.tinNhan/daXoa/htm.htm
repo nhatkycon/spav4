@@ -1,0 +1,91 @@
+﻿<div id="tinnhandaxoamdl-dlgTraloi" style="display:none">
+<table>
+    <tr>
+        <td class="adm-col-header" valign="top"><strong>Gửi tới:</strong> <input style="display:none"  class="admtxt-250 ID" /></td>
+        <td valign="top">
+         <div class="adm-textarea-small-12 NguoinhanTo" style="float:left;">
+             <input class="adm-token-input Nguoinhan" />
+        </div>
+         <div style="float: left; width: 120px;"> 
+                <a class="mdl-head-btn mdl-head-add" id="tinnhandaxoamdl-addnguoinhanBtn" href="javascript:tinnhandaxoaObj.addnguoinhantl();">+</a>
+         </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="adm-col-header" valign="top"><strong>Cc:</strong></td>
+        <td valign="top">
+        <div class="adm-textarea-small-12 CcTo" style="float:left;">
+            <input class="adm-token-input Cc" />
+        </div>
+         <div style="float: left; width: 120px;"> 
+                <a class="mdl-head-btn mdl-head-add" id="tinnhandaxoamdl-addccBtn" href="javascript:tinnhandaxoaObj.addcctl();">+</a>
+                 <a class="mdl-head-btn mdl-head-add" id="tinnhandaxoamdl-bcBtn" href="javascript:tinnhandaxoaObj.thembctl();">Thêm Bc</a>
+            </div>
+        </td>
+    </tr>
+    <tr id="rowbc" style="display:none">
+        <td class="adm-col-header" valign="top"><strong>Bc:</strong></td>
+        <td valign="top">
+        <div class="adm-textarea-small-12 BcTo" style="float:left;">
+            <input class="adm-token-input Bc" />
+        </div>
+            <div style="float: left; width: 120px;"> 
+                    <a class="mdl-head-btn mdl-head-add" id="tinnhandaxoamdl-addbcBtn" href="javascript:tinnhandaxoaObj.addbctl();">+</a>
+         </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="adm-col-header" valign="top"><strong>Tiêu đề:</strong></td>
+        <td valign="top">
+        <input class="adm-textarea-small-12 Tieude" />
+        </td>
+    </tr>
+   
+    <tr>
+        <td class="adm-col-header" valign="top"><strong> File kèm theo</strong></td > 
+        <td class="" valign="top">
+            <strong>  
+                <div class="adm-textarea-small-12" style="float:left;"><div class="adm-upload-fileList"></div></div> 
+                <a href="javascript:;" class="adm-uploadfile-btn File mdl-head-btn" ref="">Upload File</a>
+            </strong>
+        </td> 
+        
+    </tr>
+    <tr>
+        <td class="adm-col-header" valign="top">&nbsp;<strong>Nội dung:</strong></td>
+      
+        <td valign="top">
+           <input type="checkbox" class="Quantrong" />Quang trọng
+            <input type="checkbox" class="Tinpopup" />Thông báo Popup
+            <input type="checkbox" class="Tindidong" />Thông báo tới di động
+        </td>
+    </tr>
+      <tr>
+        <td class="adm-col-header" valign="top"></td>
+      
+        <td valign="top">
+           <textarea class="Noidung"></textarea> 
+        </td>
+    </tr>
+     <tr>
+        <td valign="top" colspan="2">
+    <a class="mdl-head-btn mdl-head-del" id="tinnhandaxoamdl-dlgTraloi-delBtn" href="javascript:tinnhandaxoaObj.delEmptytl();">Hủy</a>
+    <a class="mdl-head-btn mdl-head-add" id="tinnhandaxoamdl-dlgTraloi-saveBtn" href="javascript:tinnhandaxoaObj.savetl();">Lưu nháp</a>
+    <a class="mdl-head-btn mdl-head-add" id="tinnhandaxoamdl-dlgTraloi-sendBtn" href="javascript:tinnhandaxoaObj.sendtl();">Gửi</a>
+    <a class="mdl-head-btn mdl-head-new" id="tinnhandaxoamdl-dlgTraloi-newBtn" style="display:none" href="javascript:preload.loadmdl('cnn.plugin.tinNhan.Class1, cnn.plugin.tinNhan',function(){adm.regType(typeof(tinNhanObj),'cnn.plugin.tinNhan.Class1, cnn.plugin.tinNhan',function(){tinNhanObj.themmoi();});});">Soạn thư mới</a>
+   
+       
+        </td>
+    </tr>
+
+    <tr>
+        <td valign="top"></td>
+        <td valign="top">
+        
+        <span class="admInfo"></span><br />
+
+        <span class="admMsg"></span>
+        </td>
+    </tr>
+    </table>
+</div>

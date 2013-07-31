@@ -1,0 +1,183 @@
+/* 
+	Resets defualt browser settings
+	reset.css
+*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td  
+{
+    border:0; outline:0;
+}
+
+:focus { outline:0; }
+a:active {  }
+body { line-height:1; color:black; background:white; }
+ol,ul { list-style:none; }
+table { border-collapse:separate; border-spacing:0; }
+caption,th,td { text-align:left; font-weight:normal; }
+blockquote:before,blockquote:after,q:before,q:after { content:""; }
+blockquote,q { quotes:"" ""; }
+.slides-ribbon
+{
+    display:none;    
+}
+.container {
+	width:402px;
+	height:302px;
+	padding:10px;
+	padding-top:0px;
+	margin:0 auto;
+	position:relative;
+	z-index:0;
+}
+.home-tin-slides {
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:100;
+	
+}
+.home-tin-slides .slides_container {
+	width:402px;
+	overflow:hidden;
+	position:relative;
+	display:none;
+}
+.home-tin-slides .slides_container div.slide {
+	width:402px;
+	height:302px;
+	display:block;
+	
+}
+.home-tin-slides .next, .home-tin-slides .prev {
+	position:absolute;
+	top:107px;
+	left:-45px;
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+	display:none;
+}
+.home-tin-slides .next {
+	left:1010px;
+	display:none;
+}
+.home-tin-slides .pagination {
+	margin:6px auto;
+	width: 400px;
+	text-align:left;
+    margin-top: -15px;
+    position: relative;
+    z-index: 9999;
+    display: none;
+}
+.home-tin-slides .pagination li {
+	margin:0 5px;
+	list-style:none;
+	display:inline-block;
+}
+.home-tin-slides .pagination li a {
+	display:block;
+	width:12px;
+	height:0;
+	padding-top:12px;
+	background-image:url(../img/pagination.png);
+	background-position:0 0;
+	float:left;
+	overflow:hidden;
+}
+.home-tin-slides .pagination li.current a {
+	background-position:0 -12px;
+}
+.home-tin-slides .caption {
+	z-index:500;
+	position:absolute;
+	bottom:-35px;
+	left:0;
+	height:80px;
+	padding:5px 10px 0px 10px;
+	background:#000;
+	background:rgba(0,0,0,.5);
+	width:400px;
+	font-size:12pt;
+	line-height:12pt;
+	color:#fff;
+	border-top:1px solid #000;
+	text-shadow:none;
+}
+.home-tin-slides .caption p
+{
+    margin:0;
+    padding:0;
+    font-size: 10px;
+    line-height: 18px;
+}
+.home-tin-slides .caption p b
+{
+    font-size: 12px;
+}
+.home-tin-slides .caption span
+{
+    font-size:10px;
+    line-height:16px;
+}
+
+
+
+.home-mdl-tin-body
+{
+    width:610px;
+	padding-top:0px;
+	z-index:0;
+}
+.home-mdl-tin-body-container{
+	
+}
+.home-mdl-tin-body-container .slides_container {
+	width:590px;
+	overflow:hidden;
+	position:relative;
+	display:none;
+}
+.home-mdl-tin-body-container .slides_container div.slide {
+	width:590px;
+	height:120px;
+	display:block;
+	
+}
+.home-mdl-tin-body-container .next, .home-mdl-tin-body-container .prev {
+	position:absolute;
+	top:107px;
+	left:-45px;
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+	display:none;
+}
+.home-mdl-tin-body-container .next {
+	left:1010px;
+	display:none;
+}
+.home-mdl-tin-body-container .pagination {
+	margin:6px auto;
+	width: 590px;
+	text-align:right;
+}
+.home-mdl-tin-body-container .pagination li {
+	margin:0 5px;
+	list-style:none;
+	display:inline-block;
+}
+.home-mdl-tin-body-container .pagination li a {
+	display:block;
+	width:12px;
+	height:0;
+	padding-top:12px;
+	background-image:url(../img/pagination.png);
+	background-position:0 0;
+	float:left;
+	overflow:hidden;
+}
+.home-mdl-tin-body-container .pagination li.current a {
+	background-position:0 -12px;
+}

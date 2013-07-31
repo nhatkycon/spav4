@@ -1,0 +1,20 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/lib/master/MasterPage.master" AutoEventWireup="true" CodeFile="Statics.master.cs" Inherits="lib_master_Statics" %>
+<%@ Register src="../ui/web/right/Video.ascx" tagname="Video" tagprefix="uc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <asp:ContentPlaceHolder id="head12" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div class="main-body">
+        <div class="main-r">
+            <uc1:Video ID="Video1" runat="server" />
+        </div>
+        <div class="main-l">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder12" runat="server">
+               
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>
+
+

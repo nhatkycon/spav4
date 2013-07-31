@@ -1,0 +1,394 @@
+﻿@import url(../jstree/style.css);
+@import url(ui.jqgrid.css);
+@import url(ui.multiselect.css);
+@import url(ui/jquery-ui-1.8.4.custom.css);
+html, body {
+	margin: 0;			/* Remove body margin/padding */
+	padding: 0;
+	overflow: hidden;	/* Remove scroll bars on browser window */	
+    font-size: 80%;
+    font-family:Tahoma;
+    height:100%;    
+    
+}
+*
+{
+    font-family: Arial !important;
+}
+body
+{
+    background-image: url(i/agroviet-logo.png);
+    background-position: center center;
+    background-repeat:no-repeat;
+}
+/*Splitter style */
+
+
+#LeftPane {
+	/* optional, initial splitbar position */
+	overflow: auto;
+}
+/*
+ * Right-side element of the splitter.
+*/
+
+#RightPane {
+	padding: 2px;
+	overflow: auto;
+}
+.ui-tabs-nav li {position: relative;}
+.ui-tabs-selected a span {padding-right: 10px;}
+.ui-tabs-close {display: none;position: absolute;top: 3px;right: 0px;z-index: 800;width: 16px;height: 14px;font-size: 10px; font-style: normal;cursor: pointer;}
+.ui-tabs-selected .ui-tabs-close {display: block;}
+.ui-layout-west .ui-jqgrid tr.jqgrow td { border-bottom: 0px none;}
+.ui-datepicker {z-index:1200;}
+.rotate
+    {
+        /* for Safari */
+        -webkit-transform: rotate(-90deg);
+
+        /* for Firefox */
+        -moz-transform: rotate(-90deg);
+
+        /* for Internet Explorer */
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    }
+
+a
+{
+    outline-style:none;
+}
+.mdl-head
+{
+    height:30px;
+}
+.mdl-head-btn
+{
+    /*
+    float:left;
+    border:solid 1px #4297D7;
+    color:#333;
+    text-decoration:none;
+    background-color:#E8F4FD;
+    margin-right:5px;
+    */
+}
+a:hover.mdl-head-btn
+{
+    /*
+    background-color:#FBEC88;
+    color:#2E6E9E;
+    */
+}
+.mdl-head-slt
+{
+    margin-left:5px;
+}
+.td-header
+{
+    background-color:#F2F2F2;
+    font-weight:bold;
+    color:#666;
+}
+.admtxt
+{
+    width:200px;
+}
+.adm-col-header
+{
+    width:120px;
+    text-align:right;
+    background-color:#F2F2F2;
+    font-weight:bold;
+    color:#666;            
+}
+
+.adm-col-header-left
+{     
+    text-align:left;
+    background-color:#F2F2F2;
+    font-weight:bold;
+    color:#666;            
+}
+.admInfo
+{
+    color:#666;
+}
+.admMsg
+{
+    color:Red;
+    font-size:8pt;
+}
+.adm-dialogS
+{
+    display:none;    
+}
+#adm-banner
+{
+    height:150px;
+    background-image:url(i/adm-banner.jpg);
+    background-repeat: no-repeat !important;
+    background-position: 0px 0px !important;
+}
+#adm-loading
+{
+    position: fixed;
+    top:0px;
+    right:25px;
+    float:left;
+    display:none;
+    z-index:999999;
+    padding: 2px 5px 2px 20px;
+    background-image:url(i/loading.gif) !important;
+    background-repeat:no-repeat !important;
+    background-position: 0px 0px !important;
+    /*
+    border:solid 1px #A6C9E2;
+    background-color:#D4E7F5;
+    color:#2E6E9E;
+    */
+}
+.sub-mdl
+{
+    margin-top:20px;
+}
+#adm-banner-left
+{
+    float:right;
+    width:300px;
+    text-align:right;
+    margin-top:85px;    
+    margin-right:10px;
+    height:15px;
+}
+#adm-banner-left a
+{
+    color:#FFF;
+    text-decoration:none;
+    margin-left:5px;
+    margin-right:5px;
+}
+#adm-banner-left a:hover
+{
+    text-decoration: underline;
+}
+#adm-main
+{
+    background:	#999;
+	height:	100%;
+	width:	100%;
+}
+.adm-upload-preview
+{
+    display:inline-block;
+    width:40px;
+    height:40px;
+    border:solid 1px #b2b2b2;
+    margin: 2px;
+}
+
+.adm-upload-preview-img
+{
+    width:40px;
+    height:40px;
+}
+.adm-upload-preview-size
+{
+    display:inline-block;
+    width:40px;
+    height:40px;
+    border:solid 1px #b2b2b2;
+    margin: 2px;
+} 
+.adm-upload-preview-img-size
+{
+    width:70px;
+    height:70px;
+}
+.adm-upload-btn
+{
+    text-decoration:none;
+    color:blue;
+}
+a:hover.adm-upload-btn
+{
+    text-decoration:underline;
+}
+.adm-textarea
+{
+    border:solid 1px #b2b2b2;
+    padding:2px;
+    min-height:20px;    
+    outline-style:none;
+    width:90%;
+}
+.adm-token-item
+{
+    display:inline-block;
+    margin:2px;
+    padding:2px;
+    border:solid 1px #b2b2b2;
+}
+.adm-token-input
+{
+    border:0px;
+    width:50px;    
+}
+.adm-token-item a
+{
+    float: right;
+    text-decoration:none;
+    color:#999;    
+    padding:2px 4px;
+    margin-right:5px;
+}
+.adm-token-item a:hover
+{
+    color:#FFF;
+    background-color:#999;
+}
+.admtextarea
+{
+    height:54px;
+    padding:2px;
+    overflow:auto;
+    font-family:Tahoma;
+    font-size:10pt;
+}
+.mdl-head-filterPnl, .mdl-head-txtPnl, .mdl-head-searchPnl
+{
+    height:19px;
+    padding:2px;
+    display:inline-block;
+    width:146px;
+    background-image:url(i/mdl-head-txt.gif);
+    background-position:0px 0px;
+    border:0px;
+    margin-left:3px;
+}
+.mdl-head-searchPnl
+{
+    float:right;
+}
+.mdl-head-txt-focus
+{
+    background-position:0px -23px;
+}
+.mdl-head-clearSearch
+{
+    width:12px;
+    height:12px;
+    float:right;    
+    background-image:url(i/mdl-head-txt.gif);
+    background-position:0px -46px;
+    margin-top:3px;
+    display:none;
+}
+.mdl-head-filter, .mdl-head-txt, .mdl-head-search
+{
+    height:17px;
+    width:126px;
+    background-color:transparent;
+    border:0px;
+}
+.mnu-item
+{
+    padding:2px;
+    margin:2px;
+    border:solid 1px #FFF;
+    height:40px;
+    width:100%;
+    text-decoration:none;
+    display:block;
+    overflow:hidden;
+}
+.mnu-item-div
+{
+    float:left;
+    width:400px;
+    height:40px;
+}
+.mnu-item .mnu-item-icon
+{
+    width:40px;
+    height:40px;
+    margin-right:5px;
+    border:0px;
+    display:inline-block;
+    vertical-align:middle;
+}
+.mnu-item .mnu-item-title
+{
+    font-weight:bold;
+    color:#CC0000;
+    display:inline-block;
+    vertical-align:middle;
+}
+a:hover.mnu-item
+{
+    border:solid 1px #EEEEEE;
+    background-color:#F5F5F5;
+}
+a:hover.mnu-item .mnu-item-title
+{
+    color:#E17009;
+}
+
+.mnu-item-selected
+{
+    padding:2px;
+    margin:2px;
+    border:solid 1px #FCD3A1;
+    background-color:#FBF8EE;
+    height:40px;
+    width:100%;
+    text-decoration:none;
+    display:block;
+    overflow:hidden;
+}
+.mnu-item-selected .mnu-item-icon
+{
+    width:40px;
+    height:40px;
+    margin-right:5px;
+    border:0px;
+    display:inline-block;
+    vertical-align:middle;
+}
+.mnu-item-selected .mnu-item-title
+{
+    font-weight:bold;
+    color:#CC0000;
+    display:inline-block;
+    vertical-align:middle;
+}
+.ui-accordion-content
+{
+    padding-left:4px !important;
+    padding-right:12px !important;
+    overflow-x: hidden;
+}
+.west-grid
+{
+    overflow:hidden;
+}
+.adm-fn-icon
+{
+    width:40px;
+    padding:5px;
+    float:left;
+}
+#LeftPane
+{
+    overflow-x: hidden;
+}
+#LeftPanel-top
+{
+    height:300px;
+}
+#LeftPanel-bot
+{
+    margin-top:50px;
+    padding:5px;
+    border:solid 1px #b2b2b2;
+}

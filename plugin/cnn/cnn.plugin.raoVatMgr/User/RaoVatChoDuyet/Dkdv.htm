@@ -1,0 +1,307 @@
+﻿<script>
+    $(function () {
+        var tbBox = $('.thanhToan-box', '#UserRaoVatChoDuyetFnMdl-DKDVFnMdl-dlgNew');
+        $('.thanhToan-menu-item', tbBox).eq(0).addClass('thanhToan-menu-item-active');
+        $('.thanhToan-content-box', tbBox).eq(0).addClass('thanhToan-content-box-active');
+        $('.thanhToan-menu-item', tbBox).click(function () {
+            var item = $(this);
+            var _ref = item.attr('_ref');
+            $('.thanhToan-menu-item-active', tbBox).removeClass('thanhToan-menu-item-active');
+            item.addClass('thanhToan-menu-item-active');
+            $('.thanhToan-content-box-active', tbBox).removeClass('thanhToan-content-box-active');
+            $('.thanhToan-content-box[_ref="' + _ref + '"]', tbBox).addClass('thanhToan-content-box-active');
+        });
+    });
+    </script>
+<div id="UserRaoVatChoDuyetFnMdl-DKDVFnMdl-dlgNew">
+    <div style="display:none">
+        <input disabled="disabled" class="admtxt-raovat ID" />
+    </div>
+    <div class="thanhToan-box">
+        <div class="thanhToan-header">
+            <div class="ThongTin-RaoVat">
+                <div class="ThongTin-RaoVat-left">
+                    <img class="adm-upload-preview-img-60" alt="" src=""/>
+                    <br />
+                    <a class="img-muaban"></a>
+                </div>
+                <div class="ThongTin-RaoVat-right">
+                    <table>
+                            <tr class="adm-header-rv">
+                                <td style="width:120px;">
+                                    Tiêu đề:
+                                </td>
+                                <td>
+                                    <a class="TieuDe" style="font-size:16px;font-family: Arial,Tahoma; color: #E97D13;width:120px;height:40px;overflow:hidden;"></a>
+                                </td>
+                            </tr>
+                            <tr class="adm-header-rv">
+                                <td style="width:120px;">
+                                    Danh mục Sản phẩm:
+                                </td>
+                                <td>
+                                    <a class="DanhMuc"></a>
+                                </td>
+                            </tr>
+                            <tr class="adm-header-rv">
+                                <td style="width:120px;">
+                                    Ngày đăng:
+                                </td>
+                                <td>
+                                    <a class="NgayDang"></a>
+                                </td>
+                            </tr>
+                            <tr class="adm-header-rv">
+                                <td style="width:120px;">
+                                    Mã tin:
+                                </td>
+                                <td>
+                                    <a class="MaTinRV"></a>
+                                </td>
+                            </tr>
+                        </table>
+                </div>
+                <div class="ThongTin-RaoVat-TrangThaiDKDV-Div">
+                    <table style="text-align:center;">
+                        <tr class="adm-header-rv">
+                            <td style="width:200px;">
+                                Dịch vụ
+                            </td>
+                        </tr>
+                        <tr class="adm-header-rv" style="width:200px;">
+                            <td class="ThongTin-RaoVat-TrangThaiDKDV">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="thanhToan-body">
+            <div class="thanhToan-menu">
+                <a _ref="thanhToan-content-box-1" href="javascript:;" class="thanhToan-menu-item" style="margin-top:20px;">
+                    <span class="thanhToan-menu-item-icon">
+                    </span>
+                    <span class="thanhToan-menu-item-ten">
+                    Giới thiệu
+                    </span>
+                </a>
+                <a _ref="thanhToan-content-box-2" href="javascript:;" class="thanhToan-menu-item">
+                    <span class="thanhToan-menu-item-icon">
+                    </span>
+                    <span class="thanhToan-menu-item-ten">
+                    Đăng tin VIP
+                    </span>
+                </a>
+                <a _ref="thanhToan-content-box-3" href="javascript:;" class="thanhToan-menu-item">
+                    <span class="thanhToan-menu-item-icon">
+                    </span>
+                    <span class="thanhToan-menu-item-ten">
+                    Đăng tin SUPER
+                    </span>
+                </a>
+                <a _ref="thanhToan-content-box-4" href="javascript:;" class="thanhToan-menu-item">
+                    <span class="thanhToan-menu-item-icon">
+                    </span>
+                    <span class="thanhToan-menu-item-ten">
+                    Đăng tin HOT
+                    </span>
+                </a>
+                <a _ref="thanhToan-content-box-5" href="javascript:;" class="thanhToan-menu-item">
+                    <span class="thanhToan-menu-item-icon">
+                    </span>
+                    <span class="thanhToan-menu-item-ten">
+                    Thanh toán
+                    </span>
+                </a>
+                <a _ref="thanhToan-content-box-6" href="javascript:;" class="thanhToan-menu-item">
+                    <span class="thanhToan-menu-item-icon">
+                    </span>
+                    <span class="thanhToan-menu-item-ten">
+                    Liên hệ
+                    </span>
+                </a>
+                <div class="thanhToan-helpBox HoTro-DanhMuc">
+                </div>
+            </div>
+            <div class="thanhToan-content">
+                <div class="thanhToan-content-box" _ref="thanhToan-content-box-1">
+                    <div class="thanhToan-content-box-ten">
+                        GIỚI THIỆU
+                    </div>
+                    <div class="thanhToan-content-box-chiTiet GioiThieu-DanhMuc">
+                    </div>
+                </div>
+                <div class="thanhToan-content-box" _ref="thanhToan-content-box-2">
+                    <div class="thanhToan-content-box-ten">
+                    ĐĂNG TIN VIP
+                    </div>
+                    <div class="thanhToan-content-box-moTa Vip-DanhMuc">
+                    </div>
+                    <!--<div class="thanhToan-content-box-anhBox">
+                        <img class="thanhToan-content-box-anh Vip-img" src="untitled-1.gif" /><br />
+                        <a href="javascript:;" class="thanhToan-content-box-anhZoom">Phóng to</a>
+                    </div>-->
+                    <div class="thanhToan-content-box-chiTiet">
+                        <p>
+                        <span  class="thanhToan-content-box-chiTiet-tieuDe">   1. Phí dịch vụ: </span><span  class="thanhToan-content-box-chiTiet-gia GiaVip-DanhMuc"></span> <span  class="thanhToan-content-box-chiTiet-tienTe">vnđ/ngày</span>
+                        </p>
+                        <p>
+                        <span  class="thanhToan-content-box-chiTiet-tieuDe">   2. Thời gian đăng ký: Từ ngày: </span><input   class="admtxt-80 thanhToan-content-box-chiTiet-tuNgay NgayBatDauVip"/><button class="admfilter-btn admfilter-btnDate"></button> đến ngày <input   class="admtxt-80 thanhToan-content-box-chiTiet-denNgay NgayHetHanVip"/><button class="admfilter-btn admfilter-btnDate"></button><span class="SoNgayDangTinVip" style="font-style:italic;"></span>
+                        </p>
+                        <p>
+                        <span  class="thanhToan-content-box-chiTiet-tieuDe">   3. Tổng số tiền phải thanh toán:  </span> <span  class="thanhToan-content-box-chiTiet-Tong TongTien-Vip"></span><span  class="thanhToan-content-box-chiTiet-tienTe">vnđ</span>.
+                        </p>
+                    </div>
+                    <div class="thanhToan-content-box-thanhToan" style="color:Red;">Thanh toán</div>
+                    <div class="thanhToan-content-box-thanhToan-tieuDe">
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-icon">1</span>
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-ten">Thanh toán qua ATM: </span>
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-moTa">(Nếu bạn có thẻ ATM)</span>
+                        <a title="Click để thanh toán Thanh toán qua ATM:" href="javascript:;" class="thanhToan-content-box-thanhToan-atmBtn" style="margin-left:10px;color:Red;">Thanh toán</a>
+                    </div>
+                    <!--<div class="thanhToan-content-box-thanhToan-box">                        
+                        <a title="Click để thanh toán Thanh toán qua ATM:" href="javascript:;" class="thanhToan-content-box-thanhToan-atmBtn">Thanh toán</a>
+                    </div>-->
+                    <div class="thanhToan-content-box-thanhToan-tieuDe">
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-icon">2</span>
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-ten">Chuyển khoản qua Ngân hàng: </span>
+                       
+                    </div>
+                    <div class="thanhToan-content-box-thanhToan-box ChuyenKhoan-DanhMuc">
+                    </div>
+                    <div class="thanhToan-content-box-thanhToan-tieuDe" style="margin-right:20px;">
+                        <a class="mdl-head-btn mdl-head-DKVip" href="javascript:" onclick="UserRaoVatChoDuyetFn.saveDKDVVIP();" style="float:right;">Đăng ký</a>   
+                    </div>
+                </div>
+                <div class="thanhToan-content-box" _ref="thanhToan-content-box-3">
+                    <div class="thanhToan-content-box-ten">
+                    ĐĂNG TIN SUPER
+                    </div>
+                    <div class="thanhToan-content-box-moTa Super-DanhMuc">
+                    </div>
+                    <!--<div class="thanhToan-content-box-anhBox">
+                        <img class="thanhToan-content-box-anh Super-img" src="untitled-1.gif" /><br />
+                        <a href="javascript:;" class="thanhToan-content-box-anhZoom">Phóng to</a>
+                    </div>-->
+                    <div class="thanhToan-content-box-chiTiet">
+                        <p>
+                        <span  class="thanhToan-content-box-chiTiet-tieuDe">   1. Phí dịch vụ: </span><span  class="thanhToan-content-box-chiTiet-gia GiaSuper-DanhMuc"></span> <span  class="thanhToan-content-box-chiTiet-tienTe">vnđ/ngày</span>
+                        </p>
+                        <p>
+                        <span  class="thanhToan-content-box-chiTiet-tieuDe">   2. Thời gian đăng ký:  Từ ngày: </span><input   class="admtxt-80 thanhToan-content-box-chiTiet-tuNgay NgayBatDauSuper"/><button class="admfilter-btn admfilter-btnDate"></button> đến ngày: <input   class="admtxt-80 thanhToan-content-box-chiTiet-denNgay NgayHetHanSuper"/><button class="admfilter-btn admfilter-btnDate"></button><span class="SoNgayDangTinSuper" style="font-style:italic;"></span>
+                        </p>
+                        <p>
+                        <span  class="thanhToan-content-box-chiTiet-tieuDe">   3. Tổng số tiền: </span> <span  class="thanhToan-content-box-chiTiet-Tong TongTien-Super"></span><span  class="thanhToan-content-box-chiTiet-tienTe">vnđ</span>.
+                        </p>
+                    </div>
+                    <div class="thanhToan-content-box-thanhToan" style="color:Red;">Thanh toán</div>
+                    <div class="thanhToan-content-box-thanhToan-tieuDe">
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-icon">1</span>
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-ten">Thanh toán qua ATM:</span>
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-moTa">(Nếu bạn có thẻ ATM)</span>
+                        <a title="Click để thanh toán Thanh toán qua ATM:" href="javascript:;" class="thanhToan-content-box-thanhToan-atmBtn" style="margin-left:10px;color:Red;">Thanh toán</a>
+                    </div>
+                    <!--<div class="thanhToan-content-box-thanhToan-box">                        
+                        <a title="Click để thanh toán Thanh toán qua ATM:" href="javascript:;" class="thanhToan-content-box-thanhToan-atmBtn">Thanh toán</a>
+                    </div>-->
+                    <div class="thanhToan-content-box-thanhToan-tieuDe">
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-icon">2</span>
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-ten">Chuyển khoản qua Ngân hàng:</span>
+                    </div>
+                    <div class="thanhToan-content-box-thanhToan-box ChuyenKhoan-DanhMuc">
+                    </div>
+                    <div class="thanhToan-content-box-thanhToan-tieuDe" style="margin-right:20px;">
+                        <a class="mdl-head-btn mdl-head-DKSuper" href="javascript:" onclick="UserRaoVatChoDuyetFn.saveDKDVSUPER();" style="float:right;">Đăng ký</a>   
+                    </div>
+                </div>
+                <div class="thanhToan-content-box" _ref="thanhToan-content-box-4">
+                    <div class="thanhToan-content-box-ten">
+                    ĐĂNG TIN HOT
+                    </div>
+                    <div class="thanhToan-content-box-moTa Hot-DanhMuc">
+                    </div>
+                    <!--<div class="thanhToan-content-box-anhBox">
+                        <img class="thanhToan-content-box-anh Hot-img" src="untitled-1.gif" /><br />
+                        <a href="javascript:;" class="thanhToan-content-box-anhZoom">Phóng to</a>
+                    </div>-->
+                    <div class="thanhToan-content-box-chiTiet">
+                        <p>
+                        <span  class="thanhToan-content-box-chiTiet-tieuDe">1. Phí dịch vụ:</span><span  class="thanhToan-content-box-chiTiet-gia GiaHot-DanhMuc"></span> <span  class="thanhToan-content-box-chiTiet-tienTe">vnđ/ngày</span>
+                        </p>
+                        <p>
+                        <span  class="thanhToan-content-box-chiTiet-tieuDe">2. Thời gian đăng ký:  Từ ngày:</span><input   class="admtxt-80 thanhToan-content-box-chiTiet-tuNgay NgayBatDauHot"/><button class="admfilter-btn admfilter-btnDate"></button> đến ngày <input   class="admtxt-80 thanhToan-content-box-chiTiet-denNgay NgayHetHanHot"/><button class="admfilter-btn admfilter-btnDate"></button><span class="SoNgayDangTinHot" style="font-style:italic;"></span>
+                        </p>
+                        <p>
+                        <span  class="thanhToan-content-box-chiTiet-tieuDe">3. Tổng số tiền: </span> <span  class="thanhToan-content-box-chiTiet-Tong TongTien-Hot"></span><span  class="thanhToan-content-box-chiTiet-tienTe">vnđ</span>
+                        </p>
+                    </div>
+                    <div class="thanhToan-content-box-thanhToan" style="color:Red;">Thanh toán</div>
+                    <div class="thanhToan-content-box-thanhToan-tieuDe">
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-icon">1</span>
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-ten">Thanh toán qua ATM:</span>
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-moTa">(Nếu bạn có thẻ ATM)</span>
+                        <a title="Click để thanh toán Thanh toán qua ATM:" href="javascript:;" class="thanhToan-content-box-thanhToan-atmBtn" style="margin-left:10px;color:Red;">Thanh toán</a>
+                    </div>
+                    <!--<div class="thanhToan-content-box-thanhToan-box">                        
+                        <a title="Click để thanh toán Thanh toán qua ATM:" href="javascript:;" class="thanhToan-content-box-thanhToan-atmBtn">Thanh toán</a>
+                    </div>-->
+                    <div class="thanhToan-content-box-thanhToan-tieuDe">
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-icon">2</span>
+                        <span class="thanhToan-content-box-thanhToan-tieuDe-ten">Chuyển khoản qua Ngân hàng:</span>
+                    </div>
+                    <div class="thanhToan-content-box-thanhToan-box ChuyenKhoan-DanhMuc">
+                    </div>
+                    <div class="thanhToan-content-box-thanhToan-tieuDe" style="margin-right:20px;">
+                        <a class="mdl-head-btn mdl-head-DKHot" href="javascript:" onclick="UserRaoVatChoDuyetFn.saveDKDVHOT();" style="float:right;">Đăng ký</a>   
+                    </div>
+                </div>
+                <div class="thanhToan-content-box" _ref="thanhToan-content-box-5">
+                    <div class="thanhToan-content-box-ten">
+                    THANH TOÁN
+                    </div>
+                    <div class="thanhToan-content-box-chiTiet ThanhToan-DanhMuc">
+                    </div>
+                </div>
+                <div class="thanhToan-content-box" _ref="thanhToan-content-box-6">
+                    <div class="thanhToan-content-box-ten">
+                    LIÊN HỆ
+                    </div>
+                    <div class="thanhToan-content-box-chiTiet LienHe-DanhMuc">
+                    </div>
+                    <table width="100%;" style="margin-top:10px;">
+                        <tr>
+                            <td style="width:60px"></td>
+                            <td colspan="2">Gửi Email đến ban quản trị Chonongnghiep.com</td>
+                        </tr>
+                        <tr>
+                            <td style="width:60px">
+                                Tiêu đề:
+                            </td>
+                            <td valign="top">
+                                <input type="text" class="txtTieuDeLienHe" style="width: 525px;" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:60px;vertical-align:top;">
+                                Nội dung: 
+                            </td>
+                            <td valign="top">
+                                <textarea class="txtNoiDungLienHe" style="width: 525px; height: 125px;"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:60px"></td>
+                            <td>
+                                <a class="mdl-head-btn mdl-head-lienHe" href="javascript:" onclick="UserRaoVatChoDuyetFn.sendLienHe();">Liên hệ</a>
+                            </td>
+                        </tr> 
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+        <div>
+            <span class="admMsg"></span>
+        </div>
+    </div>
+</div>

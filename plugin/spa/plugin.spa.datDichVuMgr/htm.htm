@@ -1,0 +1,132 @@
+﻿<div id="datDichVuMdl-dlgNew" style="display:none;">
+    <table>
+        <tr>
+            <td class="adm-col-header" valign="top">ID:</td>
+            <td valign="top">
+                <input disabled="disabled" class="admtxt ID" />
+            </td>
+            <td class="adm-col-header" valign="top">Dịch vụ:</td>
+            <td valign="top">
+                <input class="admtxt P_ID" _value="" /><button class="admfilter-btn"></button>
+            </td>
+        </tr>    
+        <tr>
+            <td class="adm-col-header" valign="top">Spa:</td>
+            <td valign="top">
+                <input class="admtxt SPA_ID" /><button class="admfilter-btn"></button>
+            </td>
+            <td class="adm-col-header" valign="top">Khách hàng:</td>
+            <td valign="top">
+                <input class="admtxt KH_ID" _value="" /><button class="admfilter-btn"></button>
+            </td>
+        </tr>
+        <tr>
+            <td class="adm-col-header" valign="top">Ngày hẹn:</td>
+            <td valign="top">
+                <input class="admtxt NgayHen_Ngay" /><button class="admfilter-btn admfilter-btnDate"></button> Giờ: 
+                <input class="admtxt NgayHen_Gio" /><button class="admfilter-btn"></button>
+            
+            </td>
+            <td class="adm-col-header" valign="top">Ngày thanh toán:</td>
+            <td valign="top">
+                <input class="admtxt NgayThanhToan" _value="" />
+                <button class="admfilter-btn admfilter-btnDate"></button>
+            </td>
+        </tr>
+        <tr>
+            <td class="adm-col-header" valign="top">Ghi chú:</td>
+            <td valign="top" colspan="3">
+                <textarea class="admtextarea GhiChu"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" colspan="4">
+                <input type="checkbox" class="Active" /> Active | 
+                <input type="checkbox" class="Confirmed" /> Confirmed | 
+                <input type="checkbox" class="ThanhToan" /> Thanh toán | 
+                <input type="checkbox" class="SpaReaded" /> Spa đã đọc | 
+                <input type="checkbox" class="SpaConfirmed" /> Spa xác nhận |    
+            </td>    
+        </tr>
+        <tr>
+            <td class="adm-col-header" valign="top"></td>
+            <td valign="top" colspan="3">
+                <span class="admMsg"></span>
+            </td>
+        </tr>
+    </table>
+</div>
+<style>
+   
+</style>
+<div id="bookDichVuMdl-dlgNew" class="usr-card" style="display:none;">
+    <div style="padding: 10px 50px;">
+        <table cellpadding="4" cellspacing="4" width="600px;">
+            <tr>
+                <td valign="top" colspan="2">
+                    <span class="dk-header-stt">1</span>
+                    <span class="dk-header-stepTitle">Đặt lịch ngày bạn sẽ sử dụng dịch vụ</span>
+                    <div class="ddv-step-mota">
+                        Lịch hẹn sẽ được gửi tới spa ngay lập tức bạn nhé.
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="adm-col-header" valign="middle">Ngày:</td>
+                <td valign="middle">
+                    <input class="input-60 NgayHen_Ngay" /><button class="admfilter-btn admfilter-btnDate"></button> Giờ: 
+                    <input class="input-60 NgayHen_Gio" placeholder="Chọn giờ" /><button class="admfilter-btn"></button>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" colspan="2">
+                    <span class="dk-header-stt">2</span>
+                    <span class="dk-header-stepTitle">Thông tin của bạn</span>
+                    <div class="ddv-step-mota">
+                        Chúng tôi sẽ giao phiếu dịch vụ và thu tiền trực tiếp
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="adm-col-header" valign="top">Tên:</td>
+                <td valign="top">
+                    <input class="input-bl KH_Ten" placeholder="Ví dụ: Đàm Vĩnh Hưng" />
+                </td>
+            </tr>
+            <tr>
+                <td class="adm-col-header" valign="top">Địa chỉ:</td>
+                <td valign="top">
+                    <input class="input-bl KH_DiaChi" placeholder="Địa chỉ chúng tôi mang phiếu đến cho bạn" />
+                </td>
+            </tr>
+            <tr>
+                <td class="adm-col-header" valign="top">Điện thoại:</td>
+                <td valign="top">
+                    <input class="input-bl KH_Mobile" placeholder="Số điện thoại bạn dùng để liên lạc" />
+                </td>
+            </tr>
+            <tr>
+                <td class="adm-col-header" valign="top">Ghi chú:</td>
+                <td valign="top">
+                    <textarea class="textarea-bl GhiChu" placeholder="Một vài yêu cầu thêm của bạn để giúp chúng tôi phục vụ bạn tốt hơn"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" colspan="2">
+                    <span class="dk-header-stt">3</span>
+                    <span class="dk-header-stepTitle">Chờ chúng tôi mang phiếu đến</span>
+                    <div class="ddv-step-mota">
+                        Bạn chuẩn bị tiền nhé
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top"></td>
+                <td>
+                    <a class="btn dangKyBtn" href="javascript:;">Đăng ký</a>
+                </td>
+            </tr>
+        </table>
+                
+    </div>
+</div>

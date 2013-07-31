@@ -1,0 +1,193 @@
+﻿
+<div id="tinnhandaguimdl-dlgChitiet"  style="display:none">
+   <table id="Table1" cellspacing="0" cellpadding="2" width="780" border="0">
+        <tr>
+            <td style="padding-left: 10px" class="T1">
+                <div id="tinnhandaguimdl-troveDiv" style="display: none">
+                    <a class="mdl-head-btn mdl-head-add" id="tinnhandaguimdl-troveBtn" href="javascript:tinnhandaguiObj.trove();">
+                        Trở về</a></div>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="message-header">
+                    <table id="Table2" cellspacing="2" cellpadding="4" width="712" border="0" class="text_bang">
+                        <tr>
+                            <td colspan="2">
+                                <span class="details" id="lbtieude" width="552px"></span>
+                            </td>
+                            <td class="T2" style="float: right">
+                                <a href="javascript: openBrWindow();" style="float: right; margin-left: 5px;">
+                                    In trang
+                                    
+                                </a>
+                                 <a style="float: right" href="javascript:tinnhandaguiObj.showchitiet();" id="hfchitiet"
+                                    class="andiv"><span class="spanchitiet">Hiển chi tiết</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div class="chitiet" style="display: none">
+                                    <table>
+                                        <tr>
+                                            <td style="width: 122px">
+                                                Người gửi:
+                                            </td>
+                                            <td class="T1">
+                                                <span id="lbnguoigui" width="552px"></span>
+                                            </td>
+                                            <td style="float: right">
+                                                <span>Ngày nhận: </span><span id="lbngaygui" width="552px"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 122px; height: 18px">
+                                                Người nhận:
+                                            </td>
+                                            <td>
+                                                <span id="lbnguoinhan"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 122px; height: 18px">
+                                                Cc:
+                                            </td>
+                                            <td>
+                                                <span id="lbCc" width="552px"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 122px; height: 18px">
+                                                Bc:
+                                            </td>
+                                            <td>
+                                                <span id="lbBc" width="552px"></span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <span id="lbnoidung" width="569px" cssclass="Text7"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="pp_mediabars">
+                
+                     
+                   
+                </div>
+            </td>
+        </tr>
+    </table>
+ <!--   <fieldset><legend>Chi tiết tin nhắn:</legend>
+   
+<table id="Table1" cellspacing="0" cellpadding="2" width="780" border="0">
+    <tr>
+        <td style="padding-left: 10px" class="T1">
+            <div id="tinnhandenctmdl-troveDiv" style="display:none"><a class="mdl-head-btn mdl-head-add" id="tinnhandaguimdl-troveBtn"  href="javascript:tinnhandaguiObj.trove();">Trở về</a></div>
+        </td>
+        <td>
+            <div style="border-right: #c0c0c0 1px solid; border-top: #c0c0c0 1px solid; margin-top: 5px;
+                left: 0px; float: right; padding-bottom: 5px; vertical-align: middle; border-left: #c0c0c0 1px solid;
+                width: 50px; border-bottom: #c0c0c0 1px solid; position: relative; background-color: #f3f3f3;
+                text-align: center">
+                <a href="javascript: openBrWindow();">
+                    <img alt="In trang sự kiện" height="24" src="../css/ui/images/plugin-tinnhan-print.gif" style="border-top-style: none;
+                        border-right-style: none; border-left-style: none; border-bottom-style: none"
+                        width="25" />
+                </a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="height: 2px" align="right" bgcolor="tomato">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <table id="Table2" cellspacing="2" cellpadding="4" width="712" border="0" class="text_bang">
+                <tr>
+                    <td style="width: 122px" >
+                            <strong>Người gửi:</strong></td>
+                    <td class="T1">
+                        <span ID="lbnguoigui" Width="552px" ></span></td>
+                </tr>
+                <tr>
+                    <td style="width: 122px; height: 18px" >
+                        <strong> Người nhận:</strong></td>
+                    <td style="height: 18px">
+                        <span ID="lbnguoinhan" Width="552px" ></span></td>
+                </tr>
+                    <tr>
+                    <td style="width: 122px; height: 18px" >
+                        <strong> Cc:</strong></td>
+                    <td style="height: 18px">
+                        <span ID="lbCc" Width="552px" ></span></td>
+                </tr>
+                    <tr>
+                    <td style="width: 122px; height: 18px" >
+                        <strong> Bc:</strong></td>
+                    <td style="height: 18px">
+                        <span ID="lbBc" Width="552px" ></span></td>
+                </tr>
+                <tr>
+                    <td style="width: 122px; height: 20px" >
+                            <strong>Ngày gửi:</strong></td>
+                    <td style="height: 20px">
+                        <span ID="lbngaygui" Width="552px" ></span></td>
+                </tr>
+                <tr>
+                    <td style="width: 122px; height: 20px" >
+                            <strong>File đính kèm:</strong></td>
+                    <td style="height: 20px" align="left">
+                            <span ID="lbfilelist" Width="552px">
+						</td>
+                </tr>
+
+                <tr>
+                    <td style="width: 122px" >
+                        <p>
+                            <strong>Tiêu đề:</strong></p>
+                    </td>
+                    <td class="T2">
+                        <span ID="lbtieude" Width="552px"></span></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="height: 17px">
+            <div style="display: inline; width: 70px; height: 15px">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="background-color:#E6E6FA">
+            <span ID="lbnoidung" Width="569px"   CssClass="Text7"></span></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="height: 23px">
+            <div style="display: inline; width: 70px; height: 15px">
+            </div>
+        </td>
+    </tr>
+        <tr>
+        <td colspan="2" style="height: 2px" align="right" bgcolor="tomato">
+        </td>
+    </tr>
+</table>
+
+
+    </fieldset>-->
+</div>

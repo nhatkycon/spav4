@@ -1,0 +1,562 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using linh.frm;
+using linh.json;
+//using docsoft.entities;
+using docsoft;
+using System.Web.UI;
+using linh.controls;
+using docbao.entitites;
+
+//using docbao.entitites;
+[assembly: WebResource("plugin.rss.KTNN.htm.htm", "text/html", PerformSubstitution = true)]
+[assembly: WebResource("plugin.rss.KTNN.JScript1.js", "text/javascript", PerformSubstitution = true)]
+
+namespace plugin.rss.KTNN
+{
+    public class Class1:docPlugUI
+    {
+        protected override void Render(HtmlTextWriter writer)
+        {
+            StringBuilder sb = new StringBuilder();
+            ClientScriptManager cs = this.Page.ClientScript;
+            #region Tham số
+            string _ID = Request["ID"];
+            string _DM_ID = Request["DM_ID"];
+            string _CM_ID = Request["CM_ID"];
+            string _Ten = Request["Ten"];
+            string _ThuTu = Request["ThuTu"];
+            string _MoTa = Request["MoTa"];
+            string _Keywords = Request["Keywords"];
+            string _NoiDung = Request["NoiDung"];
+            string _Active = Request["Active"];
+            string _Home = Request["Home"];
+            string _Hot = Request["Hot"];
+            string _Hot1 = Request["Hot1"];
+            string _Hot2 = Request["Hot2"];
+            string _NoiBatHome = Request["NoiBatHome"];
+            string _NoiBatDm = Request["NoiBatDm"];
+            string _DocNhieu = Request["DocNhieu"];
+            string _Hot3 = Request["Hot3"];
+            string _Anh = Request["Anh"];
+            string _q = Request["q"];
+            string _Bao = Request["Bao"];
+            string _TpId = Request["TpId"];
+            string _Nid = Request["Nid"];
+            string _Ngay = Request["Ngay"];
+            string _BlId = Request["BlId"];
+            string _tag = Request["tag"];
+            docbao.entitites.Tin Item;
+            List<jgridRow> ListRow = new List<jgridRow>();
+            #endregion
+            
+            switch (subAct)
+            {
+                case "get":
+                    #region lấy dữ liệu cho grid
+                    if (string.IsNullOrEmpty(jgrsidx)) jgrsidx = "T_ID";
+                    if (string.IsNullOrEmpty(jgrsord)) jgrsord = "desc";
+
+                    Pager<docbao.entitites.Tin> PagerGet = docbao.entitites.TinDal.pagerKTNNXuLy("", false, Convert.ToInt32(jgRows), jgrsidx + " " + jgrsord, _q, _DM_ID, _CM_ID, _Bao, _TpId, _Nid, _Ngay, _tag,"0");
+                    foreach (docbao.entitites.Tin dm in PagerGet.List)
+                    {
+                        ListRow.Add(new jgridRow(dm.ID.ToString(), new string[] { 
+                             string.Format("{0}",dm.ID)
+                            , string.Format("<img  src=\"up/tintuc/rss/{0}\" />", linh.common.Lib.imgSize(dm.Anh,"100x100"))
+                            , string.Format("<b>{0}</b><br/>{2}",dm.Ten, "", dm.Url)
+                            , string.Format("{0} > {1}",dm.CM_Ten,dm.DM_Ten)
+                            , dm.NgayTao.ToString("hh:mm - dd/MM/yyyy")
+                            , dm.Hot.ToString()
+                            , dm.Hot1.ToString()
+                            , dm.Hot2.ToString()
+                            , dm.Hot3.ToString()
+                            , dm.NoiBatDm.ToString()
+                            , dm.NoiBatHome.ToString()
+                            , dm.DocNhieu.ToString()
+                            , dm.Views.ToString()
+                            , dm.BinhChon.ToString()
+                            , dm.Diem.ToString()
+                        }));
+                    }
+                    jgrid grid = new jgrid(string.IsNullOrEmpty(jgrpage) ? "1" : jgrpage, PagerGet.TotalPages.ToString(), PagerGet.Total.ToString(), ListRow);
+                    sb.Append(JavaScriptConvert.SerializeObject(grid));
+                    break;
+                    #endregion
+                case "del":
+                    #region xóa
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        TinDal.DeleteById(Convert.ToInt32(_ID));
+                    }
+                    break;
+                    #endregion
+                case "edit":
+                    #region chỉnh sửa
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        sb.Append("(" + JavaScriptConvert.SerializeObject(TinDal.SelectById(Convert.ToInt32(_ID))) + ")");
+                    }
+                    break;
+                    #endregion
+                case "save":                    
+                    #region lưu
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        Item = docbao.entitites.TinDal.SelectById(Convert.ToInt32(_ID));
+                    }
+                    else
+                    {
+                        Item = new docbao.entitites.Tin();
+                    }
+
+                    if (!string.IsNullOrEmpty(_DM_ID))
+                    {
+                        Item.DM_ID = Convert.ToInt32(_DM_ID);
+                    }
+                   // Item.DM_ID = 72;
+                    Item.Ten = _Ten;
+                    Item.Anh = _Anh;
+                    Item.MoTa = _MoTa;
+                    Item.NoiDung = _NoiDung;                    
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        Item = docbao.entitites.TinDal.Update(Item);
+                    }
+                    else
+                    {
+                        Item.Url = Domain;
+                        Item = docbao.entitites.TinDal.Insert(Item);
+                    }
+                    sb.Append("1");
+                    break;
+                    #endregion
+                case "saveTinAttr":
+                    #region saveTinAttr: lưu
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        Item = docbao.entitites.TinDal.SelectById(Convert.ToInt32(_ID));
+                        if (!string.IsNullOrEmpty(_NoiBatHome))
+                        {
+                            Item.NoiBatHome = Convert.ToBoolean(_NoiBatHome);
+                        }
+                        if (!string.IsNullOrEmpty(_NoiBatDm))
+                        {
+                            Item.NoiBatDm = Convert.ToBoolean(_NoiBatDm);
+                        }
+                        if (!string.IsNullOrEmpty(_DocNhieu))
+                        {
+                            Item.DocNhieu = Convert.ToBoolean(_DocNhieu);
+                        }
+                        if (!string.IsNullOrEmpty(_Hot))
+                        {
+                            Item.Hot = Convert.ToBoolean(_Hot);
+                        }
+                        if (!string.IsNullOrEmpty(_Hot1))
+                        {
+                            Item.Hot1 = Convert.ToBoolean(_Hot1);
+                        }
+                        if (!string.IsNullOrEmpty(_Hot2))
+                        {
+                            Item.Hot2 = Convert.ToBoolean(_Hot2);
+                        }
+                        if (!string.IsNullOrEmpty(_Hot3))
+                        {
+                            Item.Hot3 = Convert.ToBoolean(_Hot3);
+                        }
+                        Item = docbao.entitites.TinDal.UpdateAttr(_ID, _NoiBatHome, _NoiBatDm, _DocNhieu, _Hot, _Hot1, _Hot2, _Hot3);
+                    }
+                    sb.Append("1");
+                    break;
+                    #endregion
+                case "getautoComplete":
+                    #region Lấy danh sách danh mục
+                    sb.Append(JavaScriptConvert.SerializeObject(docbao.entitites.TopicDal.SelectAll()));
+                    break;
+                    #endregion
+                case "autoCompleteSearch":
+                    #region autoCompleteSearch: Tìm kiếm
+                    sb.Append(JavaScriptConvert.SerializeObject(TinDal.SelectTopTimKiem(20, _q)));
+                    break;
+                    #endregion
+                case "getTopicByTinId":
+                    #region getTopicByTinId: Lấy danh sách topic theo tinId
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        TopicCollection List12 = TopicDal.SelectByTin(_ID);
+                        foreach (Topic dm in List12)
+                        {
+                            ListRow.Add(new jgridRow(dm.ID.ToString(), new string[] { 
+                             string.Format("{0}",dm.ID)
+                            , dm.Ten
+                            , dm.ThuTu.ToString()
+                            , dm.MoTa
+                            , string.Format(@"<input _id=""{2}""  {0} type=""checkbox"" onclick=""tinFn.saveTopic(this,'{1}');"" />",dm.Active ? @" checked=""checked""" : "",_ID,dm.ID)
+                        }));
+                        }
+                        grid = new jgrid(string.IsNullOrEmpty(jgrpage) ? "1" : jgrpage, List12.Count.ToString(), List12.Count.ToString(), ListRow);
+                        sb.Append(JavaScriptConvert.SerializeObject(grid));
+                    }
+                    break;
+                    #endregion
+                case "getNhomByTinId":
+                    #region getNhomByTinId: Lấy danh sách nhóm theo tinId
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        NhomCollection List12 = NhomDal.SelectByTin(_ID);
+                        foreach (Nhom dm in List12)
+                        {
+                            ListRow.Add(new jgridRow(dm.ID.ToString(), new string[] { 
+                             string.Format("{0}",dm.ID)
+                            , dm.Ten
+                            , dm.ThuTu.ToString()
+                            , string.Format(@"<input _id=""{2}"" type=""checkbox"" {0} onclick=""tinFn.saveNhom(this,'{1}');"" />",dm.Active ? @" checked=""checked""" : "",_ID,dm.ID)
+                        }));
+                        }
+                        grid = new jgrid(string.IsNullOrEmpty(jgrpage) ? "1" : jgrpage, List12.Count.ToString(), List12.Count.ToString(), ListRow);
+                        sb.Append(JavaScriptConvert.SerializeObject(grid));
+                    }
+                    break;
+                    #endregion
+                case "getBinhLuanByTinId":
+                    #region getBinhLuanByTinId: Lấy danh sách Bình luận theo tinId
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        BinhLuanCollection List12 = BinhLuanDal.SelectByTinId(_ID, null);
+                        foreach (BinhLuan dm in List12)
+                        {
+                            ListRow.Add(new jgridRow(dm.ID.ToString(), new string[] { 
+                             string.Format("{0}",dm.ID)
+                            , dm.Ten
+                            , dm.NoiDung
+                            , dm.NgayTao.ToString("hh:mm - dd/MM/yyyy")
+                            , dm.Email
+                            , string.Format(@"<input _id=""{2}"" type=""checkbox""  {0} onclick=""tinFn.saveBinhLuan(this,'{1}');"" />",dm.Active ? @" checked=""checked""" : "",_ID,dm.ID)
+                            , string.Format(@"<a href=""javascript:;"" onclick=""tinFn.xoaBinhLuan(this,'{0}');"">xóa</a>",dm.ID)
+                        }));
+                        }
+                        grid = new jgrid(string.IsNullOrEmpty(jgrpage) ? "1" : jgrpage, List12.Count.ToString(), List12.Count.ToString(), ListRow);
+                        sb.Append(JavaScriptConvert.SerializeObject(grid));
+                    }
+                    break;
+                    #endregion
+                case "saveTopic":
+                    #region saveTopic: Lưu trạng thái Topic
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        bool active = Convert.ToBoolean(_Active);
+                        if (active)
+                        {
+                            TopicTinDal.Insert(null,
+                                Convert.ToInt32(_TpId)
+                                ,Convert.ToInt32(_ID)
+                                ,Convert.ToInt32(0)
+                            );
+                        }
+                        else
+                        {
+                            TopicTinDal.DeleteByTpIdAndTid(_TpId, _ID);
+                        }
+                    }
+                    break;
+                    #endregion
+                case "saveNhom":
+                    #region saveNhom: Lưu trạng thái nhóm
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        bool active = Convert.ToBoolean(_Active);
+                        if (active)
+                        {
+                            NhomTinDal.Insert(null, Convert.ToInt32(_Nid), Convert.ToInt32(_ID));
+                        }
+                        else
+                        {
+                            NhomTinDal.DeleteByNIdAndTid(_Nid, _ID);
+                        }
+                    }
+                    break;
+                    #endregion
+                case "saveBinhLuan":
+                    #region saveBinhLuan: Lưu trạng thái bình luận
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        bool active = Convert.ToBoolean(_Active);
+                        BinhLuan item = BinhLuanDal.SelectById(Convert.ToInt32(_BlId));
+                        item.Active = active;
+                        BinhLuanDal.Update(item);
+                    }
+                    break;
+                    #endregion
+                case "xoaBinhLuan":
+                    #region saveBinhLuan: Lưu trạng thái bình luận
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        BinhLuanDal.DeleteById(Convert.ToInt32(_BlId));
+                    }
+                    break;
+                    #endregion
+                case "getSapXeByTinId":
+                    #region getSapXeByTinId: Sắp xếp theo tin id
+                    sb.Append(@"<table cellpadding=""4"">
+        <tr>
+            <td class=""sapXep-header"">Nhóm</td>
+            <td class=""sapXep-header"">Chủ đề
+            </td>
+            <td class=""sapXep-header"">Khác
+            </td>
+        </tr>
+        <tr>");
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+
+                        sb.Append(@"<td valign=""top""><div class=""topic"">");
+                        foreach (Topic dm in TopicDal.SelectByTin(_ID))
+                        {
+                            sb.AppendFormat(@"<div class=""sapXep-item""><input _id=""{2}""  {0} type=""checkbox"" onclick=""tinFn.saveTopic(this,'{1}');"" />{3}</div>"
+                                , dm.Active ? @" checked=""checked""" : ""
+                                , _ID
+                                , dm.ID
+                                , dm.Ten);
+                        }
+                        sb.Append(@"</div></td>");
+                        sb.Append(@"<td valign=""top""><div class=""nhom"">");
+                        foreach (Nhom dm in NhomDal.SelectByTin(_ID))
+                        {
+                            sb.AppendFormat(@"<div class=""sapXep-item""><input _id=""{2}"" type=""checkbox"" {0} onclick=""tinFn.saveNhom(this,'{1}');"" />{3}</div>"
+                                , dm.Active ? @" checked=""checked""" : ""
+                                , _ID
+                                , dm.ID
+                                , dm.Ten);
+                        }
+                        sb.Append(@"</div></td>");
+                        sb.Append(@"<td valign=""top""><div class=""khac"">");
+                        Item = TinDal.SelectById(Convert.ToInt32(_ID));
+
+                        sb.AppendFormat(@"<div class=""sapXep-item""><input _id=""{1}"" type=""checkbox"" {0} onclick=""tinFn.saveTinAttr(this,'{1}','NoiBatHome');"" />Nổi bật trang chủ</div>"
+                                , Item.NoiBatHome ? @" checked=""checked""" : ""
+                                , Item.ID);
+                        sb.AppendFormat(@"<div class=""sapXep-item""><input _id=""{1}"" type=""checkbox"" {0} onclick=""tinFn.saveTinAttr(this,'{1}','NoiBatHome');"" />Nổi bật Danh mục</div>"
+                                , Item.NoiBatDm ? @" checked=""checked""" : ""
+                                , Item.ID);
+                        sb.AppendFormat(@"<div class=""sapXep-item""><input _id=""{1}"" type=""checkbox"" {0} onclick=""tinFn.saveTinAttr(this,'{1}','NoiBatHome');"" />Đọc nhiều</div>"
+                                , Item.DocNhieu ? @" checked=""checked""" : ""
+                                , Item.ID);
+                        sb.AppendFormat(@"<div class=""sapXep-item""><input _id=""{1}"" type=""checkbox"" {0} onclick=""tinFn.saveTinAttr(this,'{1}','NoiBatHome');"" />Hot</div>"
+                                , Item.Hot ? @" checked=""checked""" : ""
+                                , Item.ID);
+
+                        sb.AppendFormat(@"<div class=""sapXep-item""><input _id=""{1}"" type=""checkbox"" {0} onclick=""tinFn.saveTinAttr(this,'{1}','NoiBatHome');"" />Hot 1</div>"
+                                , Item.Hot1 ? @" checked=""checked""" : ""
+                                , Item.ID);
+                        sb.AppendFormat(@"<div class=""sapXep-item""><input _id=""{1}"" type=""checkbox"" {0} onclick=""tinFn.saveTinAttr(this,'{1}','NoiBatHome');"" />Hot 2</div>"
+                                , Item.Hot2 ? @" checked=""checked""" : ""
+                                , Item.ID);
+                        sb.AppendFormat(@"<div class=""sapXep-item""><input _id=""{1}"" type=""checkbox"" {0} onclick=""tinFn.saveTinAttr(this,'{1}','NoiBatHome');"" />Hot 3</div>"
+                                , Item.Hot3 ? @" checked=""checked""" : ""
+                                , Item.ID);
+
+                        sb.Append(@"</div></td>");
+
+                        sb.Append(@"</tr></table>");
+                    }
+                    break;
+                    #endregion
+                case "getFunction":
+                    #region Lấy function theo role
+                    if (!string.IsNullOrEmpty(_ID))
+                    {
+                        docsoft.entities.DanhMucCollection ListFnByRole = docsoft.entities.DanhMucDal.SelectAllDanhmucByGetTin(_ID, "KT_NN");
+                        if (ListFnByRole.Count > 0)
+                        {
+                            sb.Append(getTop(ListFnByRole));
+                        }
+                        else
+                        {
+                            sb.Append("0");
+                        }
+                    }
+                    break;
+                    #endregion
+                case "updateFunction":
+                    #region Cập nhật thay đổi
+                    NhomTinDal.UpdateByTIN_IdDanhmucList(_ID, Request["UpdateList"]);
+                    sb.Append("1");
+                    break;
+                    #endregion
+                case "saveTintuc":
+                    #region saveBinhLuan: Lưu trạng thái bình luận
+                    if (!string.IsNullOrEmpty(_ID) && !string.IsNullOrEmpty(_DM_ID))
+                    {
+                       
+                        {
+                            TinCollection tincolec = TinDal.InsertLaytinKTNNId((_ID),_DM_ID, Security.Username);
+                          if (tincolec.Count > 0)
+                          {
+                              sb.Append("1");
+                          }
+                          else
+                          {
+                              sb.Append("0");
+                          }
+                        }
+                       
+                      
+                     
+                    }
+                    break;
+                    #endregion
+                case "scpt":
+                    #region Nạp js
+                    sb.AppendFormat(@"{0}"
+                        , cs.GetWebResourceUrl(typeof(Class1), "plugin.rss.KTNN.JScript1.js"));
+                    break;
+                    #endregion
+                default:
+                    #region nạp
+                    docsoft.entities.FunctionCollection ListFn = docsoft.entities.FunctionDal.SelectByUserAndFNID(Security.Username, fnId);
+                    sb.Append(@"
+<div class=""mdl-head"">
+
+    <span class=""mdl-head-searchPnl ui-state-default ui-corner-all"">
+    <a href=""javascript:;"" class=""mdl-head-clearSearch""></a>
+    <input type=""text"" class=""mdl-head-txt mdl-head-search mdl-head-search-tinMdl"" />
+    </span>
+    <a class=""mdl-head-btn mdl-head-add"" id=""tinMdl-addBtn"" href=""javascript:tinFn.add();"">Thêm</a>
+    <a class=""mdl-head-btn mdl-head-edit"" id=""tinMdl-editBtn"" href=""javascript:tinFn.edit();"">Sửa</a>
+    <a class=""mdl-head-btn mdl-head-del"" id=""tinMdl-delBtn"" href=""javascript:tinFn.del();"">Xóa</a>
+ <a class=""mdl-head-btn mdl-head-del"" id=""tinMdl-delBtn"" href=""javascript:tinFn.savetintuc();"">Lưu vào tin tức</a>
+    <a class=""mdl-head-btn mdl-head-del""  href=""javascript:;"" onclick=""$('#tinMdl-List-ktnn').trigger('reloadGrid');"">Nạp</a>
+    <span class=""mdl-head-filterPnl ui-state-default ui-corner-all"">
+        <a href=""javascript:;"" class=""mdl-head-clearSearch""></a>
+        <input type=""text"" _value="""" class=""mdl-head-filter mdl-head-tinFilterByBao-ktnn""/>
+    </span>
+    <span class=""mdl-head-filterPnl ui-state-default ui-corner-all"">
+        <a href=""javascript:;"" class=""mdl-head-clearSearch""></a>
+        <input type=""text"" _value="""" class=""mdl-head-filter mdl-head-tinFilterByDanhMuc""/>
+    </span>
+    <span class=""mdl-head-filterPnl ui-state-default ui-corner-all"">
+        <a href=""javascript:;"" class=""mdl-head-clearSearch""></a>
+        <input type=""text"" _value="""" class=""mdl-head-filter mdl-head-tinFilterByNhom""/>
+    </span>
+    <span class=""mdl-head-filterPnl ui-state-default ui-corner-all"">
+        <a href=""javascript:;"" class=""mdl-head-clearSearch""></a>
+        <input type=""text"" _value="""" class=""mdl-head-filter mdl-head-tinFilterByTopic""/>
+    </span>
+    <span class=""mdl-head-filterPnl ui-state-default ui-corner-all"">
+        <a href=""javascript:;"" class=""mdl-head-clearSearch""></a>
+        <input type=""text"" _value="""" class=""mdl-head-filter mdl-head-tinFilterByNgay""/>
+    </span>
+</div>
+<div class=""message"" style=""color:red;""></div>
+<table id=""tinMdl-List-ktnn"" class=""mdl-list""></table>
+<div id=""tinMdl-Pager-ktnn""></div>
+<div class=""sub-mdl-list"" style=""height:100%;display:none;"">
+    <div  id=""tinMdl-subTinNhomMdl"" class=""sub-mdl-list-item"">
+        <div class=""mdl-head"">
+            <span class=""mdl-head-searchPnl ui-state-default ui-corner-all"">
+                <a href=""javascript:;"" class=""mdl-head-clearSearch""></a>
+                <input type=""text"" class=""mdl-head-txt mdl-head-search mdl-head-search-tinMdl-subTinNhomMdl"" />
+            </span>            
+        </div>
+        <table id=""tinMdl-subTinNhomMdl-List"" class=""mdl-list""></table>
+    </div>
+    <div id=""tinMdl-subTinTopicMdl"" class=""sub-mdl-list-item""  style=""height:100%;display:none;"">
+        <div class=""mdl-head"">
+            <span class=""mdl-head-searchPnl ui-state-default ui-corner-all"">
+                <a href=""javascript:;"" class=""mdl-head-clearSearch""></a>
+                <input type=""text"" class=""mdl-head-txt mdl-head-search mdl-head-search-tinMdl-subTinTopicMdl"" />
+            </span>            
+        </div>
+        <table id=""tinMdl-subTinTopicMdl-List"" class=""mdl-list""></table>
+    </div>
+    <div id=""tinMdl-subTinBinhLuanMdl"" class=""sub-mdl-list-item""  style=""height:100%;display:none;"">
+        <div class=""mdl-head"">
+            <span class=""mdl-head-searchPnl ui-state-default ui-corner-all"">
+                <a href=""javascript:;"" class=""mdl-head-clearSearch""></a>
+                <input type=""text"" class=""mdl-head-txt mdl-head-search mdl-head-search-tinMdl-subTinBinhLuanMdl"" />
+            </span>            
+        </div>
+        <table id=""tinMdl-subTinBinhLuanMdl-List"" class=""mdl-list""></table>
+    </div>
+
+</div>
+<div class=""sub-mdl laytintudongMdl-ktnn-subMdl"">
+    
+    <div id=""laytintudongMdl-ktnn-subMdl-mdl1"">
+        <div id=""laytintudongMdl-ktnn-functionmdl-roleFnMdl"">
+        </div>
+    </div>
+    <div id=""laytintudongMdl-ktnn-subMdl-mdl2"">
+        <div id=""laytintudongMdl-ktnn-functionmdl-UserInRoleMdl"">
+        </div>
+    </div>
+</div>
+");
+                    sb.AppendFormat(@"<script>$.getScript('{0}',function(){1});</script>"
+                        , cs.GetWebResourceUrl(typeof(Class1), "plugin.rss.KTNN.JScript1.js")
+                        , "{tinFn.loadgrid();}");
+                    sb.AppendFormat("<script>adm.validFn('{0}');</script>", JavaScriptConvert.SerializeObject(ListFn));
+                    break;
+                    #endregion
+            }
+            writer.Write(sb.ToString());
+            base.Render(writer);
+        }
+        #region nghiệp vụ cho coquanfunction
+        string getTop(docsoft.entities.DanhMucCollection list)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (docsoft.entities.DanhMuc item in list)
+            {
+                if (item.PID == 0)
+                {
+                    var childInSide = hasChild(item.ID, list);
+                    sb.AppendFormat(@"<li id=""phtml_{1}"" _ID=""{1}"" class=""{3}  {2}""><a href=""javascript:;"">{0}</a>"
+                        , item.Ten, item.ID, item.Deleted ? "jstree-checked" : "jstree-unchecked"
+                        , childInSide ? "jstree-open" : "");
+                    if (childInSide)
+                    {
+                        sb.Append(getChild(item.ID, list));
+                    }
+                    sb.AppendFormat("</li>");
+                }
+            }
+            return sb.ToString();
+        }
+        string getChild(int _Id, docsoft.entities.DanhMucCollection list)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendFormat("<ul>");
+            foreach (docsoft.entities.DanhMuc item in list)
+            {
+                if (item.PID == _Id)
+                {
+                    var childInSide = hasChild(item.ID, list);
+                    sb.AppendFormat(@"<li id=""phtml_{1}"" class=""{3} {2}"" _ID=""{1}"" ><a href=""javascript:;"">{0}</a>", item.Ten, item.ID
+                        , item.Deleted ? "jstree-checked" : "jstree-unchecked", childInSide ? "jstree-open" : "");
+                    if (childInSide)
+                    {
+                        sb.Append(getChild(item.ID, list));
+                    }
+                    sb.AppendFormat("</li>");
+                }
+            }
+            sb.AppendFormat("</ul>");
+            return sb.ToString();
+        }
+        bool hasChild(int _Id, docsoft.entities.DanhMucCollection list)
+        {
+            bool oke = false;
+            foreach (docsoft.entities.DanhMuc item in list)
+            {
+                if (item.PID == _Id && item.ID != _Id)
+                {
+                    return true;
+                }
+            }
+            return oke;
+        }
+        #endregion
+    }
+}

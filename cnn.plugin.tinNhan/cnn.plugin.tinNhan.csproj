@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E965E7F0-FBA2-4B40-A2E2-15588D733CFA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>cnn.plugin.tinNhan</RootNamespace>
+    <AssemblyName>cnn.plugin.tinNhan</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="chuaGui\Class1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Class1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="danhBa\Class1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="daGui\Class1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="danhBa\old\Class1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="daXoa\Class1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test\Class1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="thuDen\Class1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="htm.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="JScript1.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\core\cnn.entities\cnn.entities.csproj">
+      <Project>{3C6DD63D-027A-4CF6-BEFD-BA99CCFD92A5}</Project>
+      <Name>cnn.entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\docsoft.entities\docsoft.entities.csproj">
+      <Project>{081057F3-0D4E-4173-8D9F-2EA8CD9CD0C3}</Project>
+      <Name>docsoft.entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\docsoft\docsoft.csproj">
+      <Project>{57E9EC8D-655E-4BCC-9AFF-A505FAA878CA}</Project>
+      <Name>docsoft</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\core\linh\linh.csproj">
+      <Project>{AA37610E-2E32-44A7-918B-FA11F8DB8028}</Project>
+      <Name>linh</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="chuaGui\htm.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="chuaGui\JScript1.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="thuDen\htm.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="thuDen\JScript1.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="daGui\htm.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="daGui\JScript1.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="thuDen\htm1.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="thuDen\htm2.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Test\htm.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Test\JScript1.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="daGui\htm1.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="daGui\htm2.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="daXoa\JScript1.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="daXoa\htm.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="daXoa\htm1.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="daXoa\htm2.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="chuaGui\htm1.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="chuaGui\htm2.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="danhBa\htm.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="danhBa\htm1.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="danhBa\htm2.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="danhBa\JScript1.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="danhBa\htm3.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="danhBa\old\htm.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="danhBa\old\htm1.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="danhBa\old\htm2.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="danhBa\old\htm3.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="danhBa\old\JScript1.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="danhBa\htm41.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="danhBa\htm4.htm" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,20 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/lib/master/MasterPage.master" AutoEventWireup="true" CodeFile="Video.master.cs" Inherits="lib_master_Video" %>
+<%@ Register src="../ui/web/tin/TinTuc_DanhMuc_PlaceHolder.ascx" tagname="TinTuc_DanhMuc_PlaceHolder" tagprefix="uc1" %>
+<%@ Register src="../ui/web/right/Video.ascx" tagname="Video" tagprefix="uc2" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <asp:ContentPlaceHolder id="head12" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <div class="main-body">
+        <div class="main-r">
+            <uc2:Video ID="Video1" runat="server" />
+        </div>
+        <div class="main-l">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder12" runat="server">
+                <uc1:TinTuc_DanhMuc_PlaceHolder ID="TinTuc_DanhMuc_PlaceHolder1" 
+                    runat="server" />
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>
