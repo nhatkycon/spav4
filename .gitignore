@@ -50,6 +50,7 @@ build/
 [Bb]in/
 [Oo]bj/
 web/lib/up/tintuc/
+*.config
 
 # MSTest test Results
 [Tt]est[Rr]esult*/

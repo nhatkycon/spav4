@@ -224,14 +224,13 @@ namespace docsoft.entities
             Item._CoQuan = _cq;
             return Item;
         }
-
-        public static Member SelectByUser(string username)
+        public static Member SelectByUser(SqlConnection con, string username)
         {
             Member Item = new Member();
             CoQuan _cq = new CoQuan();
             SqlParameter[] obj = new SqlParameter[1];
             obj[0] = new SqlParameter("username", username);
-            using (IDataReader rd = SqlHelper.ExecuteReader(DAL.con(), CommandType.StoredProcedure, "sp_tblMember_Select_SelectByUsername_Hoangda", obj))
+            using (IDataReader rd = SqlHelper.ExecuteReader(con, CommandType.StoredProcedure, "sp_tblMember_Select_SelectByUsername_Hoangda", obj))
             {
                 while (rd.Read())
                 {
@@ -241,6 +240,10 @@ namespace docsoft.entities
             }
             Item._CoQuan = _cq;
             return Item;
+        }
+        public static Member SelectByUser(string username)
+        {
+            return SelectByUser(DAL.con(), username);
         }
 
         public static Member Select_InsertIntoLhByUser(string User)

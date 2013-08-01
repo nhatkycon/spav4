@@ -48,6 +48,8 @@
     <Compile Include="Articles.cs" />
     <Compile Include="capgui.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="PhieuQuaTang.cs" />
+    <Compile Include="QuaTang.cs" />
     <Compile Include="DatHang.cs" />
     <Compile Include="DatHangChiTiet.cs" />
     <Compile Include="KTNN.cs" />

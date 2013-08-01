@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using docsoft;
 using linh.core;
 using linh.controls;
 using System.Text;
@@ -17,6 +18,7 @@ public partial class lib_ui_web_heThong_navi_top : BasedUi
 {
     public string txt;
     public string logo;
+    public string ten;
     protected void Page_Load(object sender, EventArgs e)
     {
         StringBuilder sb = new StringBuilder();
@@ -48,8 +50,13 @@ public partial class lib_ui_web_heThong_navi_top : BasedUi
             {
                 logo = string.Format("{0}", String.IsNullOrEmpty(ItemDm.Description) ? string.Format(@"<a href="""" class=""logo""></a>", domain) : ItemDm.Description);
             }
+            if (Security.IsAuthenticated())
+            {
+                ten = MemberDal.SelectByUser(con, Security.Username).Ten;
+            }
         }
         sb.Append(onlineMember());
+        
         txt = sb.ToString();
     }
 

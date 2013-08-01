@@ -19,7 +19,7 @@
 </div>
 <div class="top-right">
     <%if(Security.IsAuthenticated()){ %>
-        <a href="/me/" class="topBar-navigation-item icon-dvu"><span class="icon"></span><span class="icon-ten"><%=Security.Username %></span></a>
+        <a href="/lib/pages/CaNhan.aspx" class="topBar-navigation-item icon-dvu"><span class="icon"></span><span class="icon-ten"><%=ten %></span></a>
         <%--<a href="/mem/<%=Security.Username %>/" class="topBar-navigation-item icon-khang item-icon-vietBai"><span class="icon"></span><span class="icon-ten">Cá nhân</span></a>--%>
         <a href="javascript:;" class="topBar-navigation-item icon-khang item-icon-thoat"><span class="icon"></span><span class="icon-ten">Thoát</span></a>
     <%}else{ %>
